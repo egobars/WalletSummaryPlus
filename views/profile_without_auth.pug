@@ -1,0 +1,20 @@
+extends layout
+
+block content
+  header
+    .header_block_zero
+    .header_block_first
+      h3.company_name WalletSummaryPlus
+    .header_block_second
+      form(action='/login')
+        input.login_register_button(type='submit' value='Login')
+    .header_block_third
+      form(action='/register')
+        input.login_register_button(type='submit' value='Register')
+    .header_block_forth
+  .main
+    .need_auth_bar
+      h2 Please
+      a.need_auth(href='/login') log in
+      h2 to see this page.
+

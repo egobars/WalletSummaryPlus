@@ -1,0 +1,85 @@
+extends layout
+
+block content
+	header
+		.header_block_zero
+		.header_block_first
+			h3.company_name WalletSummaryPlus
+		.header_block_second
+			form(action='/login')
+				input.login_register_button(type='submit', value='Login')
+		.header_block_third
+			form(action='/register')
+				input.login_register_button(type='submit', value='Register')
+		.header_block_forth
+	.main
+		h1 Wallet
+		h2 Main information about wallet:
+		.main_information
+			.information_bar
+				h2.information_lable absolute_change_24h:
+				h2.information_value 162.6369
+			.information_bar
+				h2.information_lable assets_value:
+				h2.information_value 6230.5652
+			.information_bar
+				h2.information_lable relative_change_24h:
+				h2.information_value -2.4638
+		h2 Assets:
+		.assets_body
+			.asset
+				.image_name
+					img.icon_image(src='https://token-icons.s3.amazonaws.com/eth.png')
+					.name_body
+						h3.name Ethereum
+				.asset_bar
+					h3.asset_bar_info Price:
+					h3.asset_bar_value 2.61924e+21
+				.asset_bar
+					h3.asset_bar_info Quantity:
+					h3.asset_bar_value 1438355422165197636
+				.asset_bar
+					h3.asset_bar_info Change 24h:
+					h3.asset_bar_value -6.056454216132855
+			.asset
+				.image_name
+					img.icon_image(src='https://token-icons.s3.amazonaws.com/eth.png')
+					.name_body
+						h3.name Ethereum
+				.asset_bar
+					h3.asset_bar_info Price:
+					h3.asset_bar_value 2.61924e+21
+				.asset_bar
+					h3.asset_bar_info Quantity:
+					h3.asset_bar_value 1438355422165197636
+				.asset_bar
+					h3.asset_bar_info Change 24h:
+					h3.asset_bar_value -6.056454216132855
+			.asset
+				.image_name
+					img.icon_image(src='https://token-icons.s3.amazonaws.com/eth.png')
+					.name_body
+						h3.name Ethereum
+				.asset_bar
+					h3.asset_bar_info Price:
+					h3.asset_bar_value 2.61924e+21
+				.asset_bar
+					h3.asset_bar_info Quantity:
+					h3.asset_bar_value 1438355422165197636
+				.asset_bar
+					h3.asset_bar_info Change 24h:
+					h3.asset_bar_value -6.056454216132855
+			.asset
+				.image_name
+					img.icon_image(src='https://token-icons.s3.amazonaws.com/eth.png')
+					.name_body
+						h3.name Ethereum
+				.asset_bar
+					h3.asset_bar_info Price:
+					h3.asset_bar_value 2.61924e+21
+				.asset_bar
+					h3.asset_bar_info Quantity:
+					h3.asset_bar_value 1438355422165197636
+				.asset_bar
+					h3.asset_bar_info Change 24h:
+					h3.asset_bar_value -6.056454216132855

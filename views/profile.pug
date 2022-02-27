@@ -1,0 +1,32 @@
+extends layout
+
+block content
+  header
+    .header_block_zero
+    .header_block_first
+      h3.company_name WalletSummaryPlus
+    .header_block_for_menu
+      ul.menu
+        li
+          a(href='#') #{name}
+          ul
+            li
+              a.button_in_menu(href='/profile') Profile
+            li
+              a.button_in_menu(href='/logout') Sign Out
+    .header_block_forth
+  .main
+    h1 #{name}
+    .visibility_bar
+      h2 Now visibility settings:
+      h2.red FULL
+    h2 Change visibility settings:
+    form(action='' method='post')
+      p
+        select.select_visibility(name='visibility_select')
+          option(value='Full') Full
+          option(value='Partial') Partial
+      p
+        input.send_button(type='submit' value='Send')
+    h2 Your personal link:
+    a.personal_link(href='/wallet') /wallet
