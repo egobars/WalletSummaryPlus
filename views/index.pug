@@ -6,13 +6,14 @@ block content
     .header_block_first
       h3.company_name WalletSummaryPlus
     .header_block_second
-      input.login_register_button(type='button' onclick="location.href='/login';" value='Login')
+      input.login_register_button(type='button' onclick="location.href='#';" value='Login')
     .header_block_third
-      input.login_register_button(type='button' onclick="location.href='/register';" value='Register')
+      input.login_register_button(type='button' onclick="location.href='#';" value='Register')
     .header_block_forth
-  .main
-    h1 What is WalletSummaryPlus?
-    h2 It is a service that allows any user to register an account for their etherium wallet, and get information about that wallet and share it with others, setting up information visible to other people.
-    h1 Creators:
-    h2 Comet team
+  .main_main
+    .main_main
+      h1.token_lable Enter your token:
+      form.token_form(action='/wallet')
+        input.token_input(type='text' placeholder='token' name='token')
+        button.token_form_button Send
 

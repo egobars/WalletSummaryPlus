@@ -9,11 +9,12 @@ function checkAuth() {
 }
 
 router.get('/', function(req, res, next) {
-  if (req.user) {
+  /*if (req.user) {
     res.render('index_with_profile', {name: req.user.name});
   }
   else
-    res.render('index');
+    res.render('index');*/
+  res.render('index');
 });
 
 module.exports = router;
