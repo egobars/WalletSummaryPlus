@@ -3,47 +3,47 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-//var session = require('express-session');
-//var passport = require('passport');
-//var localStrategy = require('passport-local').Strategy;
-//var flash = require('connect-flash');
-//require('./db/db')
+var session = require('express-session');
+var passport = require('passport');
+var localStrategy = require('passport-local').Strategy;
+var flash = require('connect-flash');
+require('./db/db')
+const User = require('./models/user')
 
 var indexRouter = require('./routes/index');
-/*var usersRouter = require('./routes/users');
+var usersRouter = require('./routes/users');
 var loginRouter = require('./routes/login');
 var registerRouter = require('./routes/register');
 var profileRouter = require('./routes/profile');
-var logoutRouter = require('./routes/logout');*/
+var logoutRouter = require('./routes/logout');
 var walletRouter = require('./routes/wallet');
-//const userRouter = require('./routes/user')
+var databaseRouter = require('./routes/database');
 
 var app = express();
 
-//passport.serializeUser((user, done) => done(null, user));
-//passport.deserializeUser((user, done) => done(null, user));
+passport.serializeUser((user, done) => done(null, user));
+passport.deserializeUser((user, done) => done(null, user));
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
-//app.use(session({ secret: 'you secret key' }))
-//app.use(flash())
-//app.use(passport.initialize())
-//app.use(passport.session())
+app.use(session({ secret: 'you secret key' }))
+app.use(flash())
+app.use(passport.initialize())
+app.use(passport.session())
 
-/*passport.use(
-  new localStrategy((user, password, done) => {
-    if (user !== 'test_user')
-      return done(null, false, {
-        message: 'User not found',
-      })
-    else if (password !== 'test_password')
-      return done(null, false, {
-        message: 'Wrong password',
-      })
-
-    return done(null, { id: 1, name: 'Test', age: 21 })
+passport.use(
+  new localStrategy((username, password, done) => {
+    User.findOne({ username : username},function(err,user){
+    return err 
+      ? done(err)
+      : user
+        ? password === user.password
+          ? done(null, user)
+          : done(null, false, { message: 'Incorrect password.' })
+        : done(null, false, { message: 'Incorrect username.' });
+  });
   })
-)*/
+)
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -56,13 +56,13 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-/*app.use('/users', usersRouter);
+app.use('/users', usersRouter);
 app.use('/login', loginRouter);
 app.use('/profile', profileRouter);
 app.use('/logout', logoutRouter);
-app.use('/register', registerRouter);*/
+app.use('/register', registerRouter);
 app.use('/wallet', walletRouter);
-//app.use(userRouter)
+app.use('/database', databaseRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

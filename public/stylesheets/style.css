@@ -452,3 +452,20 @@ h2 {
 .token_form_button:hover,.form_button:active,.form_button:focus {
   background: #1d49aa;
 }
+
+.database {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.database_element {
+  border: solid black 1px;
+  width: 30%;
+}
+
+.database_line {
+  display: flex;
+  gap: 10px;
+  padding-left: 10px;
+}

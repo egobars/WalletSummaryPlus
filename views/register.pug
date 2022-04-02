@@ -8,7 +8,9 @@ body.login_page_body
   .login-page
     .form
       form.login-form(action='', method="post")
-        input(type='text' placeholder='username', name='username')
+        input(type='text' placeholder='name', name='name')
+        input(type='text' placeholder='surname', name='surname')
+        input(type='text' placeholder='login', name='username')
         input(type='password' placeholder='password', name='password')
         button.form_button create
         p.message

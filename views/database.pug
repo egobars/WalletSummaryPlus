@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  .main
+    .database
+      each user in user_list
+        .database_element
+          each val, key in user._doc
+            .database_line
+              h3 #{key + ':'}
+              h3 #{val}
+          form(action='' method='post')
+            button(name='userid' value=user._id) Delete
+
